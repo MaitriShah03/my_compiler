@@ -1,0 +1,27 @@
+// input.txt
+
+// A helper function that doubles and accumulates
+int foo() {
+    int x;
+    int y;
+    x = 4;            // initialize x
+    y = 0;            // accumulator
+    // run the loop exactly once, since x==4 at first, then decremented to 3
+    while (x == 4) {
+        // basic arithmetic: multiply and add
+        y = y + x * 2;  
+        x = x - 1;      // decrement x
+    }
+    return y;        // returns 8
+}
+
+// The entry‑point
+int main() {
+    int result;
+    // call foo(), then mix in some other ops
+    result = foo() + 3 * (2 - 1) / 1;  
+    // simple comparison expression
+    // note: if you had an if‑stmt implemented, it might look like:
+    // if (result == 11) { /* … */ }  
+    return result;    // should return 11
+}

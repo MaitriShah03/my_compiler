@@ -1,0 +1,28 @@
+1. Source Files (You Write These):
+
+File Name	Purpose
+lexer.l	Lex specification file (defines token patterns / lexer rules)
+parser.y	Bison specification file (defines grammar rules / parser logic)
+code.c	Main driver code (e.g., calling yyparse())
+parsetree.c	Code for generating parsetree.txt and handling parse tree nodes
+parsetree.h Code for TreeNode definition
+generate_dot.c	Code to convert parsetree.txt into parsetree.dot
+
+2. Intermediate / Generated Files (Auto-Created by Tools):
+
+File Name	Source Tool	Purpose
+lex.yy.c	From lex.l using flex	C source code for the lexer (tokenizer)
+parser.tab.c	From parser.y using bison	C source for the parser (syntax analyzer)
+parser.tab.h	From parser.y using bison	Header file defining tokens for lex.l to use
+
+3. Final Outputs:
+
+File Name	Purpose
+parsetree.txt	Tree in indented format (created during parsing)
+parsetree.dot	DOT file created from parsetree.txt using generate_dot.c
+parsetree.png	Final parse tree image (created using Graphviz dot)
+my_compiler.exe	Final compiler binary after compilation of all .c files
+
+Optional / Temporary Files:
+.o files: Temporary object files created by gcc during compilation.
+input.txt: Input source code written in your mini-language.

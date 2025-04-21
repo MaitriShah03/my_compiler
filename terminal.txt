@@ -1,0 +1,22 @@
+//SOURCE FILES
+lexer.l
+parser.y
+code.c
+parsetree.c
+parsetree.h
+input.txt
+generate_dot.c
+
+//TERMINAL
+
+Remove-Item -Force lex.yy.c, parser.tab.c, parser.tab.h, my_compiler.exe, tac.txt, tokens.txt, decl.txt,  generate_dot.exe, parsetree.txt, parsetree.dot, parsetree.png -ErrorAction SilentlyContinue
+
+win_flex lexer.l
+win_bison -d parser.y
+gcc code.c lex.yy.c parser.tab.c parsetree.c -o my_compiler.exe
+./my_compiler
+
+gcc generate_dot.c -o generate_dot.exe
+./generate_dot.exe
+
+dot -Tpng parsetree.dot -o parsetree.png
